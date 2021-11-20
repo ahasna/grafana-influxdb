@@ -1,7 +1,8 @@
 version: '3'
 services:
   influxdb:
-    image: influxdb
+    image: arm32v7/influxdb
+    container_name: influxdb
     restart: always
     ports:
       - "8083:8083"
@@ -13,6 +14,7 @@ services:
 
   grafana:
     image: grafana/grafana:latest
+    container_name: grafana
     restart: always
     depends_on:
       - influxdb
